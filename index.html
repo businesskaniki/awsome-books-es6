@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,56 @@
     <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <main>
+
+        <div>
+            <header>
+                <h1 class="logo">Awesome books</h1>
+                <nav id="navbar">
+                </nav>
+            </header>
+            <div id="date">
+
+            </div>
+
+            <div id="book-page" class="page showing">
+                <h1 class="awebk">All awesome books</h1>
+                <ul id="books">
+                </ul>
+            </div>
+        </div>
+        <div id="add-page" class="form_section page disable-page">
+            <h3>Add a new book</h3>
+            <form action="/">
+                <input type="text" name="title" placeholder="Title"><br>
+                <input type="text" name="author" placeholder="Author"><br>
+                <p><button id="add" type="submit">Add</button></p>
+            </form>
+        </div>
+
+    </main>
+    <section id="contactinfo-page" class="page disable-page">
+        <h1 class="contact_heading">
+            Contact Information
+        </h1>
+        <div>
+            <p class="detail">Please fill free to contact us using below emails and mobile number</p>
+            <ul class="contactinfo_ul">
+                <li>email: ememekpo@yahoo.com</li>
+                <li>email: nicholaswatti@gmail.com</li>
+                <li>mobile:+23427966713</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+
+        Copyright...
+    </footer>
+    <script type="module" src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.1.1/build/global/luxon.min.js"> </script>
 </body>
-<script type="module"  src="./index.js"></script>
+
 </html>
