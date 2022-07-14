@@ -1,5 +1,6 @@
-import * as nav from "./modules/nav.js";
-import UI from "./modules/userinterface.js";
+import Navbar from './modules/nav.js';
+import UI from './modules/userinterface.js';
+import Book from './modules/books.js';
+import Storage from './modules/store.js';
 
-UI.appendBook(newBook);
-UI.resetForm();
+UI.displayBooks();

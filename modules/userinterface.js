@@ -1,15 +1,19 @@
-export default class UI {
+import Navbar from './nav.js';
+import Storage from './store.js';
+import Book from './books.js';
+
+class UI {
   static displayBooks() {
-    const addButton = document.getElementById("add");
-    const booksUL = document.getElementById("books");
+    const addButton = document.getElementById('add');
+    const booksUL = document.getElementById('books');
     const { allBooks } = Storage;
 
     allBooks.forEach((book, index) => {
-      const li = document.createElement("li");
+      const li = document.createElement('li');
       if (index % 2 === 0) {
-        li.classList.add("orange");
+        li.classList.add('orange');
       } else {
-        li.classList.add("lightblue");
+        li.classList.add('lightblue');
       }
       li.innerHTML = `
                  <div>
@@ -23,19 +27,19 @@ export default class UI {
     });
 
     UI.showDigitalClock();
-    addButton.addEventListener("click", UI.addBook);
+    addButton.addEventListener('click', UI.addBook);
     Navbar.show();
-    booksUL.addEventListener("click", (event) => UI.remove(event));
-    addButton.addEventListener("click", UI.addBook);
+    booksUL.addEventListener('click', (event) => UI.remove(event));
+    addButton.addEventListener('click', UI.addBook);
     Navbar.show();
-    booksUL.addEventListener("click", (event) => UI.remove(event));
+    booksUL.addEventListener('click', (event) => UI.remove(event));
   }
 
   static addBook(event) {
     event.preventDefault();
 
-    if (UI.formIsValid("form input")) {
-      const form = document.querySelector("form");
+    if (UI.formIsValid('form input')) {
+      const form = document.querySelector('form');
 
       const id = Storage.allBooks.length + 1;
       const newBook = {
@@ -48,13 +52,13 @@ export default class UI {
       UI.appendBook(newBook);
       UI.resetForm();
 
-      const bookList = [...document.querySelectorAll("#books li")];
+      const bookList = [...document.querySelectorAll('#books li')];
 
       bookList.forEach((item, index) => {
         if (index % 2 === 0) {
-          item.classList.add("orange");
+          item.classList.add('orange');
         } else {
-          item.classList.add("lightblue");
+          item.classList.add('lightblue');
         }
       });
     }
@@ -66,8 +70,8 @@ export default class UI {
   }
 
   static appendBook(newBook) {
-    const booksUL = document.getElementById("books");
-    const newBookToAppend = document.createElement("li");
+    const booksUL = document.getElementById('books');
+    const newBookToAppend = document.createElement('li');
 
     newBookToAppend.innerHTML = `
                <div>
@@ -81,8 +85,8 @@ export default class UI {
   }
 
   static remove(event) {
-    if (event.target.tagName === "BUTTON") {
-      const bookId = event.target.getAttribute("data-id");
+    if (event.target.tagName === 'BUTTON') {
+      const bookId = event.target.getAttribute('data-id');
       Book.remove(bookId);
 
       const listItem = event.target.parentElement;
@@ -91,16 +95,16 @@ export default class UI {
   }
 
   static resetForm() {
-    const inputs = [...document.querySelectorAll("form input")];
-    inputs.forEach((input) => (input.value = ""));
+    const inputs = [...document.querySelectorAll('form input')];
+    inputs.forEach((input) => (input.value = ''));
   }
 
   static showDigitalClock() {
     const showTime = () => {
-      const clock = document.getElementById("date");
+      const clock = document.getElementById('date');
       const dt = luxon.DateTime.now();
       const theTime = `${dt.toLocaleString(
-        luxon.DateTime.DATE_FULL
+        luxon.DateTime.DATE_FULL,
       )} ${dt.toLocaleString(luxon.DateTime.TIME_WITH_SECONDS)}`;
       clock.innerText = theTime;
     };
@@ -110,3 +114,5 @@ export default class UI {
     });
   }
 }
+
+export default UI;
