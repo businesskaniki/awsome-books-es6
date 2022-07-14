@@ -26,12 +26,6 @@ footer {
   display: block;
 }
 
-.detail {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  text-align: center;
-}
-
 .active {
   background-color: white;
   border-radius: 5px 5px 0 0;
