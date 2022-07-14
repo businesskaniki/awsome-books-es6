@@ -3,7 +3,7 @@ import Storage from './store.js';
 import Book from './books.js';
 
 class UI {
-  static displayBooks() {
+  static displayBooks = () => {
     const addButton = document.getElementById('add');
     const booksUL = document.getElementById('books');
     const { allBooks } = Storage;
@@ -35,7 +35,7 @@ class UI {
     booksUL.addEventListener('click', (event) => UI.remove(event));
   }
 
-  static addBook(event) {
+  static addBook = (event) => {
     event.preventDefault();
 
     if (UI.formIsValid('form input')) {
@@ -69,7 +69,7 @@ class UI {
     return inputs.every((input) => input.value.trim().length > 2);
   }
 
-  static appendBook(newBook) {
+  static appendBook = (newBook) => {
     const booksUL = document.getElementById('books');
     const newBookToAppend = document.createElement('li');
 
@@ -84,7 +84,7 @@ class UI {
     booksUL.appendChild(newBookToAppend);
   }
 
-  static remove(event) {
+  static remove = (event) => {
     if (event.target.tagName === 'BUTTON') {
       const bookId = event.target.getAttribute('data-id');
       Book.remove(bookId);
@@ -94,12 +94,12 @@ class UI {
     }
   }
 
-  static resetForm() {
+  static resetForm = () => {
     const inputs = [...document.querySelectorAll('form input')];
     inputs.forEach((input) => (input.value = ''));
   }
 
-  static showDigitalClock() {
+  static showDigitalClock = () => {
     const showTime = () => {
       const clock = document.getElementById('date');
       const dt = luxon.DateTime.now();

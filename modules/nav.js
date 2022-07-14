@@ -1,9 +1,9 @@
 class Navbar {
-  static show() {
+  static show = () => {
     Navbar.navigate();
   }
 
-  static navigate() {
+  static navigate = () => {
     const nav = document.getElementById('navbar');
     nav.innerHTML = `
                 <ul>
